@@ -1,32 +1,18 @@
 import java.util.Scanner;
 public class four {
         double length,width;
-        Scanner input=new Scanner(System.in);
+
         four() {
             length = 1;
             width = 1;
         }
-        public void setLength()
+        public void setLength(double a)
         {
-            System.out.println("enter the length");
-            double a=input.nextDouble();
-            if(a>0.0 && a<20.0) {
             length = a;
-            }
-            else {
-                System.out.println("length is not in range");
-            }
         }
-        public void setWidth()
+        public void setWidth(double b)
         {
-            System.out.println("enter the width");
-            double b=input.nextDouble();
-            if(b>0.0 && b<20.0) {
             width = b;
-            }
-            else {
-                System.out.println("width is not in range");
-            }
         }
         public double getLength()
         {
@@ -49,8 +35,28 @@ public class four {
 
     public static void main(String[] args) {
         four obj= new four();
-        obj.setLength();
-        obj.setWidth();
+
+        Scanner input=new Scanner(System.in);
+
+        System.out.println("enter the length");
+
+        double len=input.nextDouble();
+        if (len<0.0||len>20.0) {
+            System.out.println("not in range, enter again");
+            len=input.nextDouble();
+        }
+        obj.setLength(len);
+
+        Scanner in=new Scanner(System.in);
+        System.out.println("enter the width");
+
+        double wid=input.nextDouble();
+        if (wid<0.0 || wid>20.0) {
+            System.out.println("not in range, enter again");
+            wid=input.nextDouble();
+        }
+        obj.setWidth(wid);
+
         System.out.println("the length of the rectangle is "+obj.getLength());
         System.out.println("the width of the rectangle is "+obj.getWidth());
         obj.area();
