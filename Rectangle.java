@@ -5,15 +5,13 @@ public class Rectangle{
         length = 0;
         breadth = 0;
     }
+    Rectangle(double length,double breadth){
+        setLenBre(length,breadth);
+    }
     public void setLenBre(double a,double b)
     {
-       // if(a>0.0 && a<20.0 && b>0.0 && b<20.0) {
             length = a;
             breadth = b;
-       // }
-       // else {
-        //    System.out.println("length or breadth is not in range");
-        //}
     }
     public void getLenBre()
     {
@@ -23,11 +21,6 @@ public class Rectangle{
     {
         double result=length*breadth;
         System.out.println("area of the rectangle for the dimensions given = "+roundTwoDecimals(result));
-    }
-    public void perimeter()
-    {
-        double peri=2*(length+breadth);
-        System.out.println("perimeter of the rectangle for the dimensions given = "+roundTwoDecimals(peri));
     }
     double roundTwoDecimals(double d) {
         DecimalFormat twoDForm = new DecimalFormat("#.##");
