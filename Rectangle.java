@@ -1,19 +1,19 @@
 import java.text.DecimalFormat;
-public class Rectangle{
-    double length,breadth;
+public class Rectangle
+{
+    private double length;
+    private double breadth;
+
     Rectangle() {
         length = 0;
         breadth = 0;
     }
-    Rectangle(double length,double breadth){
-        setLenBre(length,breadth);
-    }
-    public void setLenBre(double a,double b)
+    Rectangle(double length,double breadth)
     {
-            length = a;
-            breadth = b;
+        this.length=length;
+        this.breadth=breadth;
     }
-    public void getLenBre()
+    public void getLengthBreadth()
     {
         System.out.println("length of rectangle = "+length+" and breadth of rectangle = "+breadth);
     }
