@@ -1,31 +1,32 @@
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class bookmain {
-    public void createBooks(book obj,String bt, int bp)
+public class BookMain {
+
+    public void createBooks(Book obj,String bookTitle, int bookPrice)
     {
-            obj.setBook_title(bt);
-            obj.setBook_price(bp);
+            obj.setBookTitle(bookTitle);
+            obj.setBookPrice(bookPrice);
 
     }
 
 
-    public void showBooks(book obj)
+    public void showBooks(Book obj)
     {
-        System.out.println(obj.getBook_title() + "           " + obj.getBook_price());
+        System.out.println(obj.getBookTitle() + "           " + obj.getBookPrice());
     }
 
 
     public static void main(String[] args)
     {
-        bookmain ob=new bookmain();
+        BookMain ob=new BookMain();
         int n = 0;
         boolean val=false, value=false, v=false;
 
         Scanner input = new Scanner(System.in);
 
         do {
-            System.out.println("enter the number books you want to add");
+            System.out.println("enter the number of books you want to add");
             try{
                 n = Integer.parseInt(input.nextLine());
                 val = true;
@@ -35,17 +36,17 @@ public class bookmain {
             }
         }while(!val);
 
-        book[] obj = new book[n];
-        String bt="";
+        Book[] obj = new Book[n];
+        String bookTitle="";
 
         for (int i = 0; i < n; i++) {
-            obj[i] = new book();
+            obj[i] = new Book();
             Scanner sca=new Scanner(System.in);
 
             do {
                 System.out.println("enter the title of the book");
-                bt=sca.nextLine();
-                if(Pattern.matches("[a-zA-Z]+", bt))
+                bookTitle=sca.nextLine();
+                if(Pattern.matches("[a-zA-Z]+", bookTitle))
                 {
                     value = true;
                 }
@@ -57,13 +58,13 @@ public class bookmain {
 
 
             Scanner sc = new Scanner(System.in);
-            int bp=0;
+            int bookPrice=0;
 
 
             do {
                 System.out.println("enter the price of the book");
                 try{
-                    bp = Integer.parseInt(sc.nextLine());
+                    bookPrice = Integer.parseInt(sc.nextLine());
                     v = true;
                 }
                 catch(IllegalArgumentException e){
@@ -71,7 +72,7 @@ public class bookmain {
                 }
             }while(!v);
 
-            ob.createBooks(obj[i],bt,bp);
+            ob.createBooks(obj[i],bookTitle,bookPrice);
         }
         System.out.println("Book Title" + "   " + "Book Price");
         for (int i = 0; i < n; i++){

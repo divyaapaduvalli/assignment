@@ -1,18 +1,17 @@
-import java.util.Scanner;
-public class book {
-    String Book_title;
-    int Book_price;
+public class Book {
+    private String bookTitle;
+    private int bookPrice;
 
-    public void setBook_title(String bt) {
-        Book_title = bt;
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
-    public void setBook_price(int bp){
-        Book_price=bp;
+    public void setBookPrice(int bookPrice){
+        this.bookPrice=bookPrice;
     }
-    public String getBook_title(){
-        return Book_title;
+    public String getBookTitle(){
+        return bookTitle;
     }
-    public int getBook_price(){
-        return Book_price;
+    public int getBookPrice(){
+        return bookPrice;
     }
 }

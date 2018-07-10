@@ -1,9 +1,9 @@
-public class date {
+public class Date {
     static int[] daysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-    int day;
-    int month;
-    int year;
-    date(int d,int m,int y){
+    private int day;
+    private int month;
+    private int year;
+    Date(int d,int m,int y){
         if(d>0&&d<31) {
             day = d;
         }
@@ -44,7 +44,7 @@ public class date {
         System.out.println(d+"/"+m+"/"+y);
     }
     public static void main(String[] args){
-        date obj= new date(04,10,1996);
+        Date obj= new Date(04,10,1996);
         obj.addDays(30);
     }
 }
