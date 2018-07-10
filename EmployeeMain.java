@@ -9,18 +9,19 @@ public class EmployeeMain {
         Employee[] obj = new Employee[5];
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-        Scanner input = new Scanner(System.in);
-        boolean temp = false, value = false, tempo = false;
+        boolean temp,value,tempo;
         int employeeNumber = 0;
         String employeeName = "";
         Date joiningDate = null;
 
         for (int i = 0; i < obj.length; i++) {
+
             obj[i] = new Employee();
+            temp=false;
             do {
                 System.out.println("Enter the employee number");
                 try {
+                    Scanner input = new Scanner(System.in);
                     employeeNumber = Integer.parseInt(input.nextLine());
                     temp = true;
                 } catch (IllegalArgumentException e) {
@@ -29,10 +30,11 @@ public class EmployeeMain {
             } while (!temp);
 
             obj[i].setEmployeeNumber(employeeNumber);
-            Scanner sc = new Scanner(System.in);
+            value = false;
             do {
                 System.out.println("enter the employee name");
-                employeeName = sc.nextLine();
+                Scanner sca = new Scanner(System.in);
+                employeeName = sca.nextLine();
                 if (Pattern.matches("[a-zA-Z]+", employeeName)) {
                     value = true;
                 } else {
@@ -41,10 +43,27 @@ public class EmployeeMain {
             } while (!value);
 
             obj[i].setEmployeeName(employeeName);
-
+            tempo=false;
             do {
                 System.out.println("Enter your joining date");
+                Scanner sc = new Scanner(System.in);
                 String joining = sc.next();
+
+                String[] arr=new String[3];
+
+                arr=joining.split("/");
+
+                int[] array=new int[3];
+
+                for(int j=0;j<arr.length;j++){
+                    array[j]=Integer.parseInt(arr[j]);
+                }
+
+                if(array[0]<1 || array[0]>31 || array[1]<1 || array[1]>12 || array[2]<1 || array[2]>2018)
+                {
+                    System.out.println("not a valid date");
+                    continue;
+                }
                 try {
                     //Parsing the String
                     joiningDate = dateFormat.parse(joining);
